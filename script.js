@@ -3,6 +3,8 @@
 //counter that keeps track of amount of rows or columns
 //row will have as many rows areas there are columns
 
+
+/* Feature #1: add rows to the grid */
 let amountofRows = 1;
 let amountofColumns = 2;
 
@@ -18,7 +20,7 @@ function addRow() {
         let cell = document.createElement("td");
         newRow.appendChild(cell);
     }
-    
+
     mainGrid.appendChild(newRow);
     amountofRows++;
 }
