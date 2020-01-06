@@ -1,6 +1,6 @@
 # cuny2xAssignment5
 
-<!-- 
+
 Assignment:
 Based on the in-class demonstration, complete the following user stories:
 As a user, I can:
@@ -13,9 +13,9 @@ As a user, I can:
 -fill all uncolored cells with the currently selected color
 -fill all cells with the currently selected color
 -clear all cells/restore all cells to their original/initial color
--click and hold (mouseover) from a single cell (start) to a different cell (end such that all affected/hovered-over cells from start to end change to the currently selected color -->
+-click and hold (mouseover) from a single cell (start) to a different cell (end such that all affected/hovered-over cells from start to end change to the currently selected color
 
-<!-- A few useful methods, properties, and events for this assignment:
+A few useful methods, properties, and events for this assignment:
 - `getElementById()`
 - `addEventListener()`
 - `getElementsByTagName()`
@@ -26,4 +26,4 @@ As a user, I can:
 - `Array.from()`
 - `mousedown`
 - `mouseover`
-- `mouseup` -->
+- `mouseup`
