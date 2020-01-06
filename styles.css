@@ -4,5 +4,5 @@ height, width, color */
 td {
     height: 100px;
     width: 200px;
-    color: red;
+    background-color: red;
 }

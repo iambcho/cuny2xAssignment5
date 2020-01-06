@@ -18,6 +18,7 @@ function addRow() {
         let cell = document.createElement("td");
         newRow.appendChild(cell);
     }
+    
     mainGrid.appendChild(newRow);
     amountofRows++;
 }
