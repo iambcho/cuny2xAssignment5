@@ -25,11 +25,13 @@
     <button onclick="removeColumn()">Remove Column</button>
 
   
-  <!-- Feature #5: add a dropdown menu of colors and Feature #6: click on a single cell, changing its color to the currently selected color -->
+    <!-- Feature #5: add a dropdown menu of colors
+         Feature #6: click on a single cell, changing its color to the currently selected color 
+    -->
     <form>
         <p>
             <label>Select list</label>
-            <select id="color-select" onchange="setCurrentColor(this.value)"> // 
+            <select id="color-select" onchange="setCurrentColor(this.value)"> <!-- 6 -->
                 <option value="#87bac9">blue</option>
                 <option value="#db5881">pink</option>
                 <option value="#d4e094">green</option>
@@ -37,7 +39,11 @@
             </select>
         </p>
     </form>
-  
+
+    <!-- Feature #7: fill all uncolored cells with the currently selected color -->
+    <button onclick="setUncolored()">Fill all uncolored</button>
+
+    
     <table id="main-grid">
         <tr>
             <td></td>

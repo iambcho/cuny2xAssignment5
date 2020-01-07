@@ -19,6 +19,9 @@ function addRow() {
     for(let i = 0; i < amountofColumns; i++) {
         let cell = document.createElement("td");
         cell.addEventListener("click", changeColor);
+        // mark the cell as uncolored. when it is colored, remove class
+        cell.classList.add("uncolored");
+
         newRow.appendChild(cell);
     }
 
@@ -38,6 +41,7 @@ function addColumn() {
     for(let i = 0; i < amountofRows; i++) {
         let cell = document.createElement("td");
         cell.addEventListener("click", changeColor);
+        cell.classList.add("uncolored");
         
         allRows[rowCounter].appendChild(cell);
 
@@ -93,19 +97,48 @@ let cells = document.getElementsByTagName("td");
 let cellList = [...cells];
 
 for (let i=0; i < cellList.length; i++) {
-    cellList[i].addEventListener("click", changeColor);
+    const cell = cellList[i];
+    cell.addEventListener("click", changeColor);
+    cell.classList.add("uncolored");
 }
-
 
 // changes color of a cell
 function changeColor() {
     this.style.backgroundColor = currentColor;
+
+    // remove class "uncolored" because cell is now colored
+    this.classList.remove("uncolored")
 }
 
 // sets currentColor based on the color selected from dropdown
 function setCurrentColor(color) {
     currentColor = color;
 }
+
+
+/* Feature #7: fill all uncolored cells with the currently selected color */
+function setUncolored() {
+    // get all cells in the table
+    let allCells = document.getElementsByTagName("td");
+    let allCellsList = [...cells];
+
+    // filter out the cells that are colored
+    const uncolored = allCellsList.filter(cell => {
+        return cell.classList.contains("uncolored");
+    });
+
+    // change the background color of each uncolored cell and remove "uncolored" class
+    uncolored.forEach(cell => {
+        cell.style.backgroundColor = currentColor;
+        cell.classList.remove("uncolored");
+    })
+}
+
+/* Feature #8: fill all cells with the currently selected color */
+
+
+/* Feature #9: clear all cells/restore all cells to their original/initial color*/
+
 
 
 
