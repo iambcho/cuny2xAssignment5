@@ -18,6 +18,7 @@ function addRow() {
 
     for(let i = 0; i < amountofColumns; i++) {
         let cell = document.createElement("td");
+        cell.addEventListener("click", changeColor);
         newRow.appendChild(cell);
     }
 
@@ -34,11 +35,10 @@ function addColumn() {
 
     let rowCounter = 0;
 
-
-
     for(let i = 0; i < amountofRows; i++) {
         let cell = document.createElement("td");
-
+        cell.addEventListener("click", changeColor);
+        
         allRows[rowCounter].appendChild(cell);
 
         rowCounter++;
@@ -47,8 +47,9 @@ function addColumn() {
 
     // mainGrid.appendChild(newRow);
     amountofColumns++;
-  
-  }
+
+}
+
 
 /* Feature #3: remove rows from the grid */
 function removeRow() {
@@ -83,6 +84,31 @@ function removeColumn() {
     amountofColumns--;
 }
 
+
+/* Feature #6: click on a single cell, changing its color to the currently selected color */
+let currentColor = `${document.getElementById("color-select").value}`
+
+// add event handlers to the 2 starting cells
+let cells = document.getElementsByTagName("td");
+let cellList = [...cells];
+
+for (let i=0; i < cellList.length; i++) {
+    cellList[i].addEventListener("click", changeColor);
+}
+
+
+// changes color of a cell
+function changeColor() {
+    this.style.backgroundColor = currentColor;
+}
+
+// sets currentColor based on the color selected from dropdown
+function setCurrentColor(color) {
+    currentColor = color;
+}
+
+
+
 /*
 
 Feature #10:
@@ -91,3 +117,4 @@ such that all affected/hovered-over cells from start to end change to the
 currently selected color
 
 */
+
