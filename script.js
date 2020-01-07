@@ -47,7 +47,43 @@ function addColumn() {
 
     // mainGrid.appendChild(newRow);
     amountofColumns++;
+
 }
+
+
+/* Feature #3: remove rows from the grid */
+function removeRow() {
+    //grab the main grid
+    let mainGrid = document.getElementById("main-grid");
+    
+    mainGrid.deleteRow(amountofRows-1);
+
+    amountofRows--;
+}
+
+/* Feature #4: remove columns from the grid */
+
+function removeColumn() {
+    //grab the main grid
+    let mainGrid = document.getElementById("main-grid");
+    
+    let allRows = document.querySelectorAll("tr");
+
+    let rowCounter = 0;
+
+
+
+    for(let i = 0; i < amountofRows; i++) {
+    
+        allRows[rowCounter].removeChild(allRows[rowCounter].lastChild);
+
+        rowCounter++;
+       
+    }
+
+    amountofColumns--;
+}
+
 
 /* Feature #6: click on a single cell, changing its color to the currently selected color */
 let currentColor = `${document.getElementById("color-select").value}`
@@ -70,3 +106,15 @@ function changeColor() {
 function setCurrentColor(color) {
     currentColor = color;
 }
+
+
+
+/*
+
+Feature #10:
+-click and hold (mouseover) from a single cell (start) to a different cell (end) 
+such that all affected/hovered-over cells from start to end change to the 
+currently selected color
+
+*/
+

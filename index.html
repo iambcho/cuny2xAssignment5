@@ -15,12 +15,21 @@
 
     <!-- Feature #2: add columns to the grid -->
     <button onclick="addColumn()">Add Column</button>
-    
-    <!-- Feature #5: add a dropdown menu of colors -->
+  
+  <br>
+
+    <!-- Feature #3: remove rows from the grid -->
+    <button onclick="removeRow()">Remove Row</button>
+
+    <!-- Feature #4: remove columns from the grid -->
+    <button onclick="removeColumn()">Remove Column</button>
+
+  
+  <!-- Feature #5: add a dropdown menu of colors and Feature #6: click on a single cell, changing its color to the currently selected color -->
     <form>
         <p>
             <label>Select list</label>
-            <select id="color-select" onchange="setCurrentColor(this.value)">
+            <select id="color-select" onchange="setCurrentColor(this.value)"> // 
                 <option value="#87bac9">blue</option>
                 <option value="#db5881">pink</option>
                 <option value="#d4e094">green</option>
@@ -28,17 +37,14 @@
             </select>
         </p>
     </form>
-    
+  
     <table id="main-grid">
         <tr>
             <td></td>
             <td></td>
         </tr>
     </table>
-
-    <!-- Feature #6: click on a single cell, changing its color to the currently selected color -->
-    
-
     <script src="script.js"></script>
+
 </body>
 </html> 
