@@ -20,7 +20,7 @@
     <form>
         <p>
             <label>Select list</label>
-            <select id = "myList">
+            <select id="color-select" onchange="setCurrentColor(this.value)">
                 <option value="#87bac9">blue</option>
                 <option value="#db5881">pink</option>
                 <option value="#d4e094">green</option>
@@ -36,6 +36,8 @@
         </tr>
     </table>
 
+    <!-- Feature #6: click on a single cell, changing its color to the currently selected color -->
+    
 
     <script src="script.js"></script>
 </body>
