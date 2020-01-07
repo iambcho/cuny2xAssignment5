@@ -47,4 +47,15 @@ function addColumn() {
 
     // mainGrid.appendChild(newRow);
     amountofColumns++;
+  
+  }
+
+/* Feature #3: remove rows from the grid */
+function removeRow() {
+    //grab the main grid
+    let mainGrid = document.getElementById("main-grid");
+    
+    mainGrid.deleteRow(amountofRows-1);
+
+    amountofRows--;
 }
