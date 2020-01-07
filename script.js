@@ -8,17 +8,24 @@
 let amountofRows = 1;
 let amountofColumns = 2;
 
+
+// used for part 10 - tracks user holding down mouse
+let coloring = false 
+
+
 function addRow() {
     //grab the main grid
     let mainGrid = document.getElementById("main-grid");
-    //make the row that we want to poplate and append to the table on the DOM
+    //make the row that we want to populate and append to the table on the DOM
     let newRow = document.createElement("tr");
 
     //populate the row with "squares" or cells aka TD elements
 
     for(let i = 0; i < amountofColumns; i++) {
         let cell = document.createElement("td");
-        cell.addEventListener("click", changeColor);
+        
+        initializeCell(cell)
+
         // mark the cell as uncolored. when it is colored, remove class
         cell.classList.add("uncolored");
 
@@ -40,8 +47,8 @@ function addColumn() {
 
     for(let i = 0; i < amountofRows; i++) {
         let cell = document.createElement("td");
-        cell.addEventListener("click", changeColor);
-        cell.classList.add("uncolored");
+        
+        initializeCell(cell)
         
         allRows[rowCounter].appendChild(cell);
 
@@ -66,7 +73,6 @@ function removeRow() {
 }
 
 /* Feature #4: remove columns from the grid */
-
 function removeColumn() {
     //grab the main grid
     let mainGrid = document.getElementById("main-grid");
@@ -89,17 +95,53 @@ function removeColumn() {
 }
 
 
+
 /* Feature #6: click on a single cell, changing its color to the currently selected color */
 let currentColor = `${document.getElementById("color-select").value}`
+
+// sets up new cell: sets event handlers and sets class to "uncolored"
+function initializeCell(cell) {
+    // change color on click
+    cell.addEventListener("click", changeColor);
+    // give cell as class called "uncolored"
+    cell.classList.add("uncolored");
+
+    /* Feature #10:
+        click and hold (mouseover) from a single cell (start) to a different cell (end) 
+        such that all affected/hovered-over cells from start to end change to the 
+        currently selected color
+    */
+
+    // on mousedown, start coloring
+    cell.addEventListener("mousedown", e => {
+        coloring = true
+    });
+
+    // if coloring, set background color of cell to the currentColor and remove the uncolored class
+    cell.addEventListener("mousemove", e => {
+        if (coloring) {
+            cell.style.backgroundColor = currentColor;
+            cell.classList.remove("uncolored");
+        }
+    });
+
+    // if coloring, on mouseup, set coloring to false
+    cell.addEventListener("mouseup", e => {
+        if (coloring) {
+            coloring = false;
+        }
+    })
+}
+
 
 // add event handlers to the 2 starting cells
 let cells = document.getElementsByTagName("td");
 let cellList = [...cells];
 
+
 for (let i=0; i < cellList.length; i++) {
     const cell = cellList[i];
-    cell.addEventListener("click", changeColor);
-    cell.classList.add("uncolored");
+    initializeCell(cell)
 }
 
 // changes color of a cell
@@ -120,7 +162,7 @@ function setCurrentColor(color) {
 function setUncolored() {
     // get all cells in the table
     let allCells = document.getElementsByTagName("td");
-    let allCellsList = [...cells];
+    let allCellsList = [...allCells];
 
     // filter out the cells that are colored
     const uncolored = allCellsList.filter(cell => {
@@ -159,13 +201,3 @@ function clearAll() {
         cell.classList.add("uncolored");
     })
 }
-
-/*
-
-Feature #10:
--click and hold (mouseover) from a single cell (start) to a different cell (end) 
-such that all affected/hovered-over cells from start to end change to the 
-currently selected color
-
-*/
-
