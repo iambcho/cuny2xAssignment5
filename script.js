@@ -53,16 +53,8 @@ function addColumn() {
 function removeRow() {
     //grab the main grid
     let mainGrid = document.getElementById("main-grid");
-    //make the row that we want to poplate and append to the table on the DOM
-    let newRow = document.createElement("tr");
+    
+    mainGrid.deleteRow(amountofRows-1);
 
-    //populate the row with "squares" or cells aka TD elements
-
-    for(let i = 0; i < amountofColumns; i++) {
-        let cell = document.createElement("td");
-        newRow.appendChild(cell);
-    }
-
-    mainGrid.appendChild(newRow);
-    amountofRows++;
+    amountofRows--;
 }
