@@ -48,3 +48,21 @@ function addColumn() {
     // mainGrid.appendChild(newRow);
     amountofColumns++;
 }
+
+/* Feature #3: remove rows from the grid */
+function removeRow() {
+    //grab the main grid
+    let mainGrid = document.getElementById("main-grid");
+    //make the row that we want to poplate and append to the table on the DOM
+    let newRow = document.createElement("tr");
+
+    //populate the row with "squares" or cells aka TD elements
+
+    for(let i = 0; i < amountofColumns; i++) {
+        let cell = document.createElement("td");
+        newRow.appendChild(cell);
+    }
+
+    mainGrid.appendChild(newRow);
+    amountofRows++;
+}
