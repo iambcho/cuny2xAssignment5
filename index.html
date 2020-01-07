@@ -15,20 +15,33 @@
 
     <!-- Feature #2: add columns to the grid -->
     <button onclick="addColumn()">Add Column</button>
-
-    <br>
+  
+  <br>
 
     <!-- Feature #3: remove rows from the grid -->
     <button onclick="removeRow()">Remove Row</button>
-
+  
+  <!-- Feature #5: add a dropdown menu of colors -->
+    <form>
+        <p>
+            <label>Select list</label>
+            <select id = "myList">
+                <option value="#87bac9">blue</option>
+                <option value="#db5881">pink</option>
+                <option value="#d4e094">green</option>
+                <option value="#f7e277">yellow</option>
+            </select>
+        </p>
+    </form>
+  
     <table id="main-grid">
         <tr>
             <td></td>
             <td></td>
         </tr>
     </table>
-
+  
     <script src="script.js"></script>
 
 </body>
-</html>
+</html> 
