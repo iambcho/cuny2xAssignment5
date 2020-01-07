@@ -66,7 +66,19 @@ function removeColumn() {
     //grab the main grid
     let mainGrid = document.getElementById("main-grid");
     
-    mainGrid.deleteRow(amountofRows-1);
+    let allRows = document.querySelectorAll("tr");
 
-    amountofRows--;
+    let rowCounter = 0;
+
+
+
+    for(let i = 0; i < amountofRows; i++) {
+    
+        allRows[rowCounter].removeChild(allRows[rowCounter].lastChild);
+
+        rowCounter++;
+       
+    }
+
+    amountofColumns--;
 }
