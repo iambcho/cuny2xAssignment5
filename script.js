@@ -82,3 +82,12 @@ function removeColumn() {
 
     amountofColumns--;
 }
+
+/*
+
+Feature #10:
+-click and hold (mouseover) from a single cell (start) to a different cell (end) 
+such that all affected/hovered-over cells from start to end change to the 
+currently selected color
+
+*/
