@@ -135,13 +135,22 @@ function setUncolored() {
 }
 
 /* Feature #8: fill all cells with the currently selected color */
+function setAllCurrent() {
+    // get all cells in the table
+    let allCells = document.getElementsByTagName("td");
+    let allCellsList = [...cells];
 
+    // change the background color of each uncolored cell and remove "uncolored" class
+    allCellsList.forEach(cell => {
+        cell.style.backgroundColor = currentColor;
+        cell.classList.remove("uncolored");
+    })
+}
 
-/* Feature #9: clear all cells/restore all cells to their original/initial color*/
+/* Feature #9: clear all cells/restore all cells to their original/initial color */
+function clearAll() {
 
-
-
-
+}
 /*
 
 Feature #10:
