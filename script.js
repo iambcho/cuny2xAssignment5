@@ -149,8 +149,17 @@ function setAllCurrent() {
 
 /* Feature #9: clear all cells/restore all cells to their original/initial color */
 function clearAll() {
+    // get all cells
+    let allCells = document.getElementsByTagName("td");
+    let allCellsList = [...cells];
 
+    // remove "uncolored" class, change background color to red
+    allCellsList.forEach(cell => {
+        cell.style.backgroundColor = 'red';
+        cell.classList.add("uncolored");
+    })
 }
+
 /*
 
 Feature #10:
