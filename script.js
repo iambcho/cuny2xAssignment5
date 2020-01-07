@@ -59,3 +59,14 @@ function removeRow() {
 
     amountofRows--;
 }
+
+/* Feature #4: remove columns from the grid */
+
+function removeColumn() {
+    //grab the main grid
+    let mainGrid = document.getElementById("main-grid");
+    
+    mainGrid.deleteRow(amountofRows-1);
+
+    amountofRows--;
+}
